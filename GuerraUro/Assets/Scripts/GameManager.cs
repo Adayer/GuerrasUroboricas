@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
         orangeSpawnersArray = GameObject.FindGameObjectsWithTag("OrangeSpawners");
         blueSpawnersArray = GameObject.FindGameObjectsWithTag("BlueSpawners");
 
+        player1 = FindObjectOfType<Player1>();
+        player2 = FindObjectOfType<Player2>();
+        
         for (int i = 0; i < orangeSpawnersArray.Length; i++)
         {
             orangeSpawnersArray[i].gameObject.SetActive(false);
