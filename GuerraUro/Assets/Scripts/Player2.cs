@@ -48,7 +48,6 @@ public class Player2 : MonoBehaviour
 
     public void SelectTurrert()
     {
-        SelectTurrert();
         ronda = gm.CurrentRoundFunc();
 
         myTurrets[ronda] = currentTurret;

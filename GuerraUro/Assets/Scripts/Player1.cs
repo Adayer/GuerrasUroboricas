@@ -34,7 +34,7 @@ public class Player1 : MonoBehaviour
         
         if(gm.canInteract == true)
         {
-            SelectTurrert();
+
         }
         else
         {
@@ -49,11 +49,10 @@ public class Player1 : MonoBehaviour
 
     public void SelectTurrert()
     {
-        myTurrets[ronda].SetActive(true);
         ronda = gm.CurrentRoundFunc();
 
         myTurrets[ronda] = currentTurret;
-
+        myTurrets[ronda].SetActive(true);
 
     }
 

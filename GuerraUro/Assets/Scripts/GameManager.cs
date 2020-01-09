@@ -29,10 +29,10 @@ public class GameManager : MonoBehaviour
         ronda = 0;
         orangeSpawnersArray = GameObject.FindGameObjectsWithTag("OrangeSpawners");
         blueSpawnersArray = GameObject.FindGameObjectsWithTag("BlueSpawners");
-
         player1 = FindObjectOfType<Player1>();
         player2 = FindObjectOfType<Player2>();
-        
+
+
         for (int i = 0; i < orangeSpawnersArray.Length; i++)
         {
             orangeSpawnersArray[i].gameObject.SetActive(false);
@@ -50,31 +50,32 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentTimer > 0)
+        currentTimer2 -= Time.deltaTime;
+        if (currentTimer > 0)
         {
             currentTimer -= Time.deltaTime;
-            print(currentTimer + "Timer1");
 
         }
         if (currentTimer2 > 0)
         {
-            currentTimer2 -= Time.deltaTime;
-            print(currentTimer2 + "Timer2");
+
         }
+        print(currentTimer2);
 
 
-
-        if (currentTimer2 <= 0 && canInteract == false)
+        if (currentTimer2 <= 0)
         {
                 canInteract = true;
                 player1.SelectTurrert();
-                player1.SelectTurrert();
+                player2.SelectTurrert();
 
                 currentTimer = maxTimer;
+
         }
 
-        if (currentTimer <= 0 || (player1Ready == true && player2Ready == true) && canInteract == true)
+        if (currentTimer <= 0 ||( (player1Ready == true && player2Ready == true) && canInteract == true))
         {
+                print("me cago en tu puta madre");
                 player1.ApplyDamage(player2.GetDamage());
                 player2.ApplyDamage(player1.GetDamage());
 
