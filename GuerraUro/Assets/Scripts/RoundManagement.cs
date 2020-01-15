@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class RoundManagement : MonoBehaviour
 {
+    public GameObject[] orangeSpawnersArray;
+    public GameObject[] blueSpawnersArray;
 
     public float cur_cooldown = 0f;
     float max_cooldwon = 30f;
@@ -31,6 +33,20 @@ public class RoundManagement : MonoBehaviour
     {
         player1 = FindObjectOfType<Player1>();
         player2 = FindObjectOfType<Player2>();
+
+        orangeSpawnersArray = GameObject.FindGameObjectsWithTag("OrangeSpawners");
+        blueSpawnersArray = GameObject.FindGameObjectsWithTag("BlueSpawners");
+        for (int i = 0; i < orangeSpawnersArray.Length; i++)
+        {
+            orangeSpawnersArray[i].gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < blueSpawnersArray.Length; i++)
+        {
+            blueSpawnersArray[i].gameObject.SetActive(false);
+        }
+        blueSpawnersArray[0].gameObject.SetActive(false);
+        orangeSpawnersArray[0].gameObject.SetActive(false);
     }
 
     void Update()
@@ -75,5 +91,10 @@ public class RoundManagement : MonoBehaviour
             currentRound = currentRound + 1;
         }
     }
-
+    public int CurrentRoundFunc()
+    {
+        return currentRound;
+    }
 }
+
+

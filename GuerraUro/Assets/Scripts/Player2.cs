@@ -23,11 +23,15 @@ public class Player2 : MonoBehaviour
     void Start()
     {
         myTurrets = GameObject.FindGameObjectsWithTag("BlueSpawners");
-        currentTurret = myTurrets[0];
         gm = FindObjectOfType<GameManager>();
         rm = FindObjectOfType<RoundManagement>();
         currenetHP = 10;
 
+    }
+
+    private void Awake()
+    {
+        currentTurret = myTurrets[0];
     }
 
     // Update is called once per frame
@@ -54,7 +58,7 @@ public class Player2 : MonoBehaviour
 
     public void SelectTurrert()
     {
-        ronda = gm.CurrentRoundFunc();
+        ronda = rm.CurrentRoundFunc();
 
         myTurrets[ronda] = currentTurret;
         myTurrets[ronda].SetActive(true);

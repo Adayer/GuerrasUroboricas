@@ -14,16 +14,9 @@ public class GameManager : MonoBehaviour
     Player1 player1;
     Player2 player2;
 
-
-    float currentTimer;
-    float maxTimer = 120.0f;
-
-    float currentTimer2;
-    float maxTimer2 = 4.0f;
-
     public bool canInteract;
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
 
         ronda = 0;
@@ -56,5 +49,5 @@ public class GameManager : MonoBehaviour
     public int CurrentRoundFunc()
     {
         return ronda;
-    }
+    }*/
 }

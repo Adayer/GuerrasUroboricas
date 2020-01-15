@@ -10,6 +10,9 @@ public class Player1 : MonoBehaviour
     public GameObject tipoDeTorre1;
     public GameObject tipoDeTorre2;
 
+
+    RoundManagement rm;
+
     GameManager gm;
     float currentDamage;
 
@@ -21,11 +24,17 @@ public class Player1 : MonoBehaviour
     void Start()
     {
         myTurrets =  GameObject.FindGameObjectsWithTag("OrangeSpawners");
-        currentTurret = myTurrets[0];
+
         gm = FindObjectOfType<GameManager>();
+        rm = FindObjectOfType<RoundManagement>();
 
         currenetHP = 10;
 
+    }
+
+    private void Awake()
+    {
+        currentTurret = myTurrets[0];
     }
 
     // Update is called once per frame
@@ -39,6 +48,7 @@ public class Player1 : MonoBehaviour
             {
                 print("W");
             }
+            SelectTurrert();
         }
         else
         {
@@ -53,7 +63,7 @@ public class Player1 : MonoBehaviour
 
     public void SelectTurrert()
     {
-        ronda = gm.CurrentRoundFunc();
+        ronda = rm.CurrentRoundFunc();
 
         myTurrets[ronda] = currentTurret;
         myTurrets[ronda].SetActive(true);
