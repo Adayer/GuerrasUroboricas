@@ -14,6 +14,7 @@ public class Player1 : MonoBehaviour
     float currentDamage;
 
     float currenetHP;
+    bool canInteract = true;
 
     int ronda;
     // Start is called before the first frame update
@@ -31,10 +32,13 @@ public class Player1 : MonoBehaviour
     void Update()
     {
         print(currenetHP);
-        
-        if(gm.canInteract == true)
-        {
 
+        if (canInteract == true)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                print("W");
+            }
         }
         else
         {
@@ -79,5 +83,8 @@ public class Player1 : MonoBehaviour
     {
         currenetHP -= damage;
     }
-
+    public void SetInteraction(bool interactable)
+    {
+        canInteract = interactable;
+    }
 }

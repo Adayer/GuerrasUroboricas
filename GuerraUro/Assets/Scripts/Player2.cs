@@ -10,10 +10,13 @@ public class Player2 : MonoBehaviour
     public GameObject tipoDeTorre1;
     public GameObject tipoDeTorre2;
 
+    RoundManagement rm;
+
     GameManager gm;
     float currentDamage;
 
     float currenetHP;
+    bool canInteract = true;
 
     int ronda;
     // Start is called before the first frame update
@@ -22,7 +25,7 @@ public class Player2 : MonoBehaviour
         myTurrets = GameObject.FindGameObjectsWithTag("BlueSpawners");
         currentTurret = myTurrets[0];
         gm = FindObjectOfType<GameManager>();
-
+        rm = FindObjectOfType<RoundManagement>();
         currenetHP = 10;
 
     }
@@ -32,9 +35,12 @@ public class Player2 : MonoBehaviour
     {
         print(currenetHP);
         
-        if (gm.canInteract == true)
+        if (canInteract == true)
         {
-
+            if(Input.GetKeyDown(KeyCode.S))
+            {
+                print("S");
+            }
         }
         else
         {
@@ -77,5 +83,9 @@ public class Player2 : MonoBehaviour
     public void ApplyDamage(float damage)
     {
         currenetHP -= damage;
+    }
+    public void SetInteraction(bool interactable)
+    {
+        canInteract = interactable;
     }
 }
