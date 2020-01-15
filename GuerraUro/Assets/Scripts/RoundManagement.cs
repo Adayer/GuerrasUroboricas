@@ -6,7 +6,7 @@ public class RoundManagement : MonoBehaviour
 {
 
     public float cur_cooldown = 0f;
-    float max_cooldwon = 3f;
+    float max_cooldwon = 30f;
 
     public float cur_Attackcooldown = 0f;
     float max_Attackcooldwon = 3f;
@@ -44,8 +44,8 @@ public class RoundManagement : MonoBehaviour
                 player2.SetInteraction(true);
                 break;
             case RoundsSM.Attacking:
-                player1.SetInteraction(true);
-                player2.SetInteraction(true);
+                player1.SetInteraction(false);
+                player2.SetInteraction(false);
                 CoolDownAttack();
                 player1.ApplyDamage(player2.GetDamage());
                 player2.ApplyDamage(player1.GetDamage());

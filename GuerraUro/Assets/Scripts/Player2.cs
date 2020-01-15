@@ -33,8 +33,8 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(currenetHP);
-        
+        //print(currenetHP);
+        print("can interact" + canInteract);
         if (canInteract == true)
         {
             if(Input.GetKeyDown(KeyCode.S))

@@ -50,40 +50,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTimer2 -= Time.deltaTime;
-        if (currentTimer > 0)
-        {
-            currentTimer -= Time.deltaTime;
-
-        }
-        if (currentTimer2 > 0)
-        {
-
-        }
-        print(currentTimer2);
-
-
-        if (currentTimer2 <= 0)
-        {
-                canInteract = true;
-                player1.SelectTurrert();
-                player2.SelectTurrert();
-
-                currentTimer = maxTimer;
-
-        }
-
-        if (currentTimer <= 0 ||( (player1Ready == true && player2Ready == true) && canInteract == true))
-        {
-                print("me cago en tu puta madre");
-                player1.ApplyDamage(player2.GetDamage());
-                player2.ApplyDamage(player1.GetDamage());
-
-                ronda += 1;
-                currentTimer2 = maxTimer2;
-                canInteract = false;
-        }
-
 
     }
 
